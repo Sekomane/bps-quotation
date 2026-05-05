@@ -377,3 +377,125 @@ button {
 #FooterComponent {
     margin-top: auto;
 }
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+    body {
+        padding: 12px;
+    }
+
+    .app-container {
+        flex-direction: column;
+        border-radius: 16px;
+    }
+
+    .controls-side,
+    .preview-side {
+        width: 100%;
+        max-height: none;
+        border-right: none;
+        overflow: visible;
+    }
+
+    .controls-side {
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .grid-2,
+    .payment-grid,
+    .client-card {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-full {
+        grid-column: span 1;
+    }
+
+    .header-top {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .quote-meta {
+        grid-column: 1 / -1;
+        text-align: left;
+        margin-top: 8px;
+    }
+
+    .header-contact {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .contact-right {
+        text-align: left;
+    }
+
+    .amount-summary {
+        width: 100%;
+    }
+
+    .total-amount {
+        justify-content: stretch;
+    }
+
+    .quote-preview {
+        min-height: auto;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    .app-container {
+        border-radius: 0;
+    }
+
+    .controls-side,
+    .preview-side {
+        padding: 16px;
+    }
+
+    .header-top {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header-title h1 {
+        font-size: 1.15rem;
+    }
+
+    .quote-meta {
+        font-size: 0.68rem;
+    }
+
+    .quote-items-table {
+        font-size: 0.68rem;
+    }
+
+    .quote-items-table th,
+    .quote-items-table td {
+        padding: 6px 4px;
+    }
+
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .action-buttons button,
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
