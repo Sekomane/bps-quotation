@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eef2f5;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    padding: 30px 20px;
+}
+
+.app-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+}
+
+.controls-side {
+    flex: 1.2;
+    padding: 24px 22px;
+    border-right: 1px solid #e2e8f0;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.preview-side {
+    flex: 1.8;
+    background: #fafcff;
+    padding: 20px 24px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.quote-preview {
+    background: white;
+    padding: 24px;
+    min-height: 1122px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section {
+    background: #f8fafc;
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+    border: 1px solid #e9edf2;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.grid-full {
+    grid-column: span 2;
+}
+
+label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #2c5a7a;
+    display: block;
+    margin-bottom: 4px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+button {
+    border: none;
+    border-radius: 40px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.btn-primary,
+.btn-secondary {
+    background: #0d6efd;
+    color: white;
+}
+
+.btn-outline {
+    background: white;
+    border: 1px solid #ced4da;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+/* HEADER */
+.quote-header {
+    border-bottom: 2px solid #eef2f5;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+}
+
+.header-top {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    align-items: start;
+    gap: 14px;
+}
+
+.logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+.header-title h1 {
+    margin: 0;
+    font-size: 1.35rem;
+    color: #1e2a3e;
+    line-height: 1.1;
+}
+
+.header-title p {
+    margin-top: 4px;
+    font-size: 0.72rem;
+    color: #2c5a7a;
+}
+
+.quote-meta {
+    text-align: right;
+    font-size: 0.72rem;
+    color: #1e2a3e;
+    white-space: nowrap;
+}
+
+.quote-meta p {
+    margin-bottom: 4px;
+}
+#previewBusinessAddress {
+    white-space: pre-line;
+}
+
+/* CONTACT - NO ICONS */
+.header-contact {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 0.68rem;
+    color: #475569;
+    background: #f8fafc;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.contact-left,
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.contact-right {
+    text-align: right;
+}
+
+.header-contact p {
+    margin: 0;
+}/*client-details*/
+
+.client-card {
+    background: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.client-card strong {
+    display: block;
+    font-size: 0.7rem;
+    color: #3b6e9e;
+    margin-bottom: 3px;
+}
+
+.client-card span {
+    font-size: 0.78rem;
+    color: #1e2a3e;
+}
+
+/*item-ordered*/
+.quote-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 0.8rem;
+}
+
+.quote-items-table th,
+.quote-items-table td {
+    border: 1px solid #e2e8f0;
+    padding: 8px 6px;
+}
+
+.quote-items-table th {
+    background: #eef2ff;
+    color: #1e293b;
+    font-size: 0.7rem;
+}
+
+.quote-items-table td:nth-child(2) {
+    text-align: center;
+}
+
+.quote-items-table td:nth-child(3),
+.quote-items-table td:nth-child(4) {
+    text-align: right;
+}
+
+.empty-row {
+    text-align: center;
+    color: #64748b;
+    padding: 18px !important;
+}
+
+/*total-amount*/
+.total-amount {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.amount-summary {
+    width: 260px;
+    border-top: 2px solid #0a2b3e;
+    padding-top: 8px;
+}
+
+.amount-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.amount-row strong {
+    color: #1e2a3e;
+    font-weight: 600;
+}
+
+.total-row {
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid #cbd5e1;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.total-row span,
+.total-row strong {
+    color: #0a2b3e;
+}
+/*payment-details*/
+.payment-details {
+    margin-top: 20px;
+}
+
+.payment-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 16px;
+}
+
+.payment-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0a2b3e;
+    margin-bottom: 12px;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.payment-item strong {
+    display: block;
+    font-size: 0.7rem;
+    color: #1e2a3e;
+    margin-bottom: 3px;
+}
+
+.payment-item p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #475569;
+    font-weight: 400; 
+}
+/*terms-conditions*/
+.terms-conditions {
+    margin-top: 20px;
+}
+
+.terms-box {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+}
+
+.terms-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0a2b3e;
+    margin-bottom: 8px;
+}
+
+.terms-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.7rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.terms-list li {
+    margin-bottom: 4px;
+}
+/*footer*/
+.details-box {
+    margin-top: 18px;
+    background: #f9f9fb;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 0.7rem;
+    border-left: 3px solid #0d6efd;
+}
+
+.details-box h3 {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    color: #0a2b3e;
+}
+
+.details-box p {
+    white-space: pre-line;
+    color: #475569;
+}
+
+/*footer*/
+.quote-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px dashed #dce5ef;
+    text-align: center;
+    font-size: 0.65rem;
+    color: #6c86a3;
+}
+#FooterComponent {
+    margin-top: auto;
+}
