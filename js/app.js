@@ -198,7 +198,7 @@ function bindLiveUpdates() {
 
 function init() {
     Promise.all([
-        loadComponent("HeaderComponent", "../components/header.html"),
+        loadComponent("HeaderComponent", "components/header.html"),
         loadComponent("ClientDetailsComponent", "../components/ClientDetails.html"),
         loadComponent("ItemOrderedComponent", "../components/ItemOrdered.html"),
         loadComponent("TotalAmountComponent", "../components/TotalAmount.html"),
