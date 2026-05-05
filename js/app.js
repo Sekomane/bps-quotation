@@ -199,12 +199,12 @@ function bindLiveUpdates() {
 function init() {
     Promise.all([
         loadComponent("HeaderComponent", "components/header.html"),
-        loadComponent("ClientDetailsComponent", "../components/ClientDetails.html"),
-        loadComponent("ItemOrderedComponent", "../components/ItemOrdered.html"),
-        loadComponent("TotalAmountComponent", "../components/TotalAmount.html"),
-        loadComponent("PaymentDetailsComponent", "../components/PaymentDetails.html"),
-        loadComponent("TermsAndConditionsComponent", "../components/TermsAndConditions.html"),
-        loadComponent("FooterComponent", "../components/Footer.html")
+        loadComponent("ClientDetailsComponent", "components/ClientDetails.html"),
+        loadComponent("ItemOrderedComponent", "components/ItemOrdered.html"),
+        loadComponent("TotalAmountComponent", "components/TotalAmount.html"),
+        loadComponent("PaymentDetailsComponent", "components/PaymentDetails.html"),
+        loadComponent("TermsAndConditionsComponent", "components/TermsAndConditions.html"),
+        loadComponent("FooterComponent", "components/Footer.html")
     ])
     .then(function () {
         setDefaultQuoteValues();
