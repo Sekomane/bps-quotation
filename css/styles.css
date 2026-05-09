@@ -36,14 +36,32 @@ body {
     overflow-y: auto;
 }
 
+/* ── QUOTE PREVIEW ─────────────────────────────────────── */
+/*  flex column so the footer is pushed to the very bottom  */
 .quote-preview {
     background: white;
     padding: 24px;
-    min-height: 1122px;
+    min-height: 1122px;        /* A4-ish height */
     display: flex;
     flex-direction: column;
 }
 
+/* All component wrappers stay natural height except the
+   footer wrapper which absorbs the remaining space */
+#FooterComponent {
+    margin-top: auto;          /* pushes footer to bottom   */
+}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+.quote-footer {
+    padding-top: 10px;
+    border-top: 1px dashed #dce5ef;
+    text-align: center;
+    font-size: 0.65rem;
+    color: #6c86a3;
+}
+
+/* ── FORM SECTIONS ──────────────────────────────────────── */
 .form-section {
     background: #f8fafc;
     border-radius: 18px;
@@ -105,7 +123,7 @@ button {
     color: white;
 }
 
-/* HEADER */
+/* ── HEADER ─────────────────────────────────────────────── */
 .quote-header {
     border-bottom: 2px solid #eef2f5;
     padding-bottom: 12px;
@@ -151,11 +169,12 @@ button {
 .quote-meta p {
     margin-bottom: 4px;
 }
+
 #previewBusinessAddress {
     white-space: pre-line;
 }
 
-/* CONTACT - NO ICONS */
+/* ── CONTACT BAR ─────────────────────────────────────────── */
 .header-contact {
     margin-top: 10px;
     display: flex;
@@ -181,8 +200,9 @@ button {
 
 .header-contact p {
     margin: 0;
-}/*client-details*/
+}
 
+/* ── CLIENT CARD ─────────────────────────────────────────── */
 .client-card {
     background: #f8fafc;
     padding: 12px 14px;
@@ -205,7 +225,7 @@ button {
     color: #1e2a3e;
 }
 
-/*item-ordered*/
+/* ── ITEMS TABLE ─────────────────────────────────────────── */
 .quote-items-table {
     width: 100%;
     border-collapse: collapse;
@@ -240,7 +260,7 @@ button {
     padding: 18px !important;
 }
 
-/*total-amount*/
+/* ── TOTALS ─────────────────────────────────────────────── */
 .total-amount {
     display: flex;
     justify-content: flex-end;
@@ -278,7 +298,8 @@ button {
 .total-row strong {
     color: #0a2b3e;
 }
-/*payment-details*/
+
+/* ── PAYMENT DETAILS ─────────────────────────────────────── */
 .payment-details {
     margin-top: 20px;
 }
@@ -314,9 +335,10 @@ button {
     margin: 0;
     font-size: 0.75rem;
     color: #475569;
-    font-weight: 400; 
+    font-weight: 400;
 }
-/*terms-conditions*/
+
+/* ── TERMS & CONDITIONS ──────────────────────────────────── */
 .terms-conditions {
     margin-top: 20px;
 }
@@ -344,7 +366,8 @@ button {
 .terms-list li {
     margin-bottom: 4px;
 }
-/*footer*/
+
+/* ── DETAILS BOX ─────────────────────────────────────────── */
 .details-box {
     margin-top: 18px;
     background: #f9f9fb;
@@ -365,23 +388,13 @@ button {
     color: #475569;
 }
 
-/*footer*/
-.quote-footer {
-    margin-top: auto;
-    padding-top: 10px;
-    border-top: 1px dashed #dce5ef;
-    text-align: center;
-    font-size: 0.65rem;
-    color: #6c86a3;
-}
-#FooterComponent {
-    margin-top: auto;
-}
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
-
+/* ══════════════════════════════════════════════════════════
+   TABLET  (≤ 900px)
+   Stack controls above preview; quote preview scrolls
+   horizontally at full A4 width so it still looks correct.
+══════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
+
     body {
         padding: 12px;
     }
@@ -391,62 +404,40 @@ button {
         border-radius: 16px;
     }
 
-    .controls-side,
-    .preview-side {
+    .controls-side {
         width: 100%;
         max-height: none;
         border-right: none;
+        border-bottom: 1px solid #e2e8f0;
         overflow: visible;
     }
 
-    .controls-side {
-        border-bottom: 1px solid #e2e8f0;
+    .preview-side {
+        width: 100%;
+        overflow-x: auto;           /* horizontal scroll if needed */
+        padding: 20px;
+        background: #fafcff;
     }
 
-    .grid-2,
-    .payment-grid,
-    .client-card {
-        grid-template-columns: 1fr;
-    }
-
-    .grid-full {
-        grid-column: span 1;
-    }
-
-    .header-top {
-        grid-template-columns: 60px 1fr;
-    }
-
-    .quote-meta {
-        grid-column: 1 / -1;
-        text-align: left;
-        margin-top: 8px;
+    /* Keep A4 proportions on tablet */
+    .quote-preview {
+        width: 680px;
+        min-height: 960px;
+        margin: 0 auto;
     }
 
     .header-contact {
         flex-direction: column;
-        gap: 8px;
-    }
-
-    .contact-right {
-        text-align: left;
-    }
-
-    .amount-summary {
-        width: 100%;
-    }
-
-    .total-amount {
-        justify-content: stretch;
-    }
-
-    .quote-preview {
-        min-height: auto;
-        padding: 16px;
     }
 }
 
+/* ══════════════════════════════════════════════════════════
+   MOBILE  (≤ 600px)
+   Reflow the quote so it fits the phone screen naturally —
+   no fixed width, no zoom trick that forces horizontal scroll.
+══════════════════════════════════════════════════════════ */
 @media (max-width: 600px) {
+
     body {
         padding: 0;
     }
@@ -457,36 +448,76 @@ button {
 
     .controls-side,
     .preview-side {
-        padding: 16px;
+        padding: 12px;
     }
 
+    /* Reflow: let the quote fill the viewport naturally */
+    .preview-side {
+        overflow-x: hidden;
+    }
+
+    .quote-preview {
+        width: 100%;
+        min-height: unset;          /* no forced A4 height on mobile */
+        padding: 16px 12px;
+    }
+
+    /* Header: stack logo / title / meta vertically */
     .header-top {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
-
-    .header-title h1 {
-        font-size: 1.15rem;
+        grid-template-columns: 48px 1fr;
+        grid-template-rows: auto auto;
     }
 
     .quote-meta {
-        font-size: 0.68rem;
+        grid-column: span 2;
+        text-align: left;
+        white-space: normal;
     }
 
-    .quote-items-table {
-        font-size: 0.68rem;
+    .logo {
+        width: 44px;
+        height: 44px;
     }
 
-    .quote-items-table th,
-    .quote-items-table td {
-        padding: 6px 4px;
+    /* Contact bar: single column */
+    .header-contact {
+        flex-direction: column;
+        gap: 6px;
     }
 
+    .contact-right {
+        text-align: left;
+    }
+
+    /* Client card: single column */
+    .client-card {
+        grid-template-columns: 1fr;
+    }
+
+    /* Payment grid: single column */
+    .payment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Totals: full width */
+    .total-amount {
+        justify-content: stretch;
+    }
+
+    .amount-summary {
+        width: 100%;
+    }
+
+    /* Form grid: single column on narrow screens */
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-full {
+        grid-column: span 1;
+    }
+
+    /* Action buttons: stack vertically */
     .action-buttons {
         display: flex;
         flex-direction: column;
@@ -496,6 +527,56 @@ button {
     .action-buttons button,
     .btn-primary {
         width: 100%;
-        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════
+   PRINT / PDF
+══════════════════════════════════════════════════════════ */
+@media print {
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .controls-side {
+        display: none !important;
+    }
+
+    .preview-side {
+        width: 100%;
+        padding: 0;
+        overflow: visible;
+        background: white;
+    }
+
+    .quote-preview {
+        width: 100%;
+        min-height: 100vh;
+        zoom: 1 !important;
+    }
+}
+/* FIX PDF RENDER WIDTH */
+.quote-preview * {
+    max-width: 100%;
+}
+
+/* Prevent right overflow on mobile PDF */
+@media (max-width: 600px) {
+
+    .quote-preview {
+        overflow-x: hidden;
+    }
+
+    .quote-items-table {
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
+
+    .quote-items-table td,
+    .quote-items-table th {
+        word-break: break-word;
     }
 }
