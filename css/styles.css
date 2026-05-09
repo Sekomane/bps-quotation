@@ -530,15 +530,34 @@ button {
         text-align: center;
     }
 }
-
 /* ══════════════════════════════════════════════════════════
    PRINT / PDF
 ══════════════════════════════════════════════════════════ */
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
 @media print {
 
+    html,
     body {
-        background: white;
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
         padding: 0;
+        background: white;
+        overflow: hidden !important;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: none;
+        box-shadow: none;
+        border-radius: 0;
+        display: block;
+        overflow: visible;
     }
 
     .controls-side {
@@ -547,36 +566,116 @@ button {
 
     .preview-side {
         width: 100%;
-        padding: 0;
-        overflow: visible;
+        max-height: none !important;
+        height: auto;
+        overflow: visible !important;
+        padding: 0 !important;
+        margin: 0;
         background: white;
     }
 
     .quote-preview {
-        width: 100%;
-        min-height: 100vh;
-        zoom: 1 !important;
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        padding: 24px;
+        background: white;
+        box-shadow: none;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden !important;
+    }
+
+    #FooterComponent {
+        margin-top: auto !important;
+        padding-top: 20px;
+    }
+
+    .quote-footer {
+        padding-top: 10px;
+        border-top: 1px dashed #dce5ef;
+        text-align: center;
+        font-size: 0.65rem;
+        color: #6c86a3;
+    }
+
+    .quote-preview * {
+        max-width: 100%;
     }
 }
-/* FIX PDF RENDER WIDTH */
-.quote-preview * {
-    max-width: 100%;
+
+/* ══════════════════════════════════════════════════════════
+   PRINT / PDF
+══════════════════════════════════════════════════════════ */
+
+@page {
+    size: A4;
+    margin: 0;
 }
 
-/* Prevent right overflow on mobile PDF */
-@media (max-width: 600px) {
+@media print {
+
+    html,
+    body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 0;
+        background: white;
+        overflow: hidden !important;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: none;
+        box-shadow: none;
+        border-radius: 0;
+        display: block;
+        overflow: visible;
+    }
+
+    .controls-side {
+        display: none !important;
+    }
+
+    .preview-side {
+        width: 100%;
+        max-height: none !important;
+        height: auto;
+        overflow: visible !important;
+        padding: 0 !important;
+        margin: 0;
+        background: white;
+    }
 
     .quote-preview {
-        overflow-x: hidden;
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        padding: 24px;
+        background: white;
+        box-shadow: none;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden !important;
     }
 
-    .quote-items-table {
-        table-layout: fixed;
-        word-wrap: break-word;
+    #FooterComponent {
+        margin-top: auto !important;
+        padding-top: 20px;
     }
 
-    .quote-items-table td,
-    .quote-items-table th {
-        word-break: break-word;
+    .quote-footer {
+        padding-top: 10px;
+        border-top: 1px dashed #dce5ef;
+        text-align: center;
+        font-size: 0.65rem;
+        color: #6c86a3;
+    }
+
+    .quote-preview * {
+        max-width: 100%;
     }
 }
